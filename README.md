@@ -66,3 +66,11 @@ poetry add <biblioteca>
 - Pesquisar IAM pelo console da AWS
 - Criar usuário do IAM
 - Especificar o tipo de acesso e as permissões do usuário
+
+## Requisição da API e Ingestão no S3
+
+- Os dados são requisitados na [API](https://api.openbrewerydb.org/breweries)
+- São extraidos em formato JSON
+- São convertidos para DataFrame
+- É feito um buffer na memoria para passar os dados para csv
+- CSV é inserido na camada land do S3
