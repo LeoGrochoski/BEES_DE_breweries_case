@@ -1,4 +1,10 @@
+# arquivos de ambiente e variaveis
 .venv
 .env
 
+# config do git
 .git
+
+# arquivos de cache
+__pycache__/
+*.pyc

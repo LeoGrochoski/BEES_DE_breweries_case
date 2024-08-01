@@ -1,6 +1,6 @@
 # BEES Data Engineering – Breweries Case
 
-<img src="https://miro.medium.com/v2/resize:fit:2400/1*6Eg35s47bNX7BcPzM0Fllg.png" alt="BEES" width="500" height="300">
+<img src="https://miro.medium.com/v2/resize:fit:2400/1*6Eg35s47bNX7BcPzM0Fllg.png" alt="BEES" width="600" height="300">
 
 ## Objetivo
 
@@ -45,3 +45,24 @@ poetry add <biblioteca>
 ```
 
 **OBS**: Como estamos utilizando o poetry como gerenciador do ambiente, usar o comando para cada biblioteca. Para facilitar criei um requirements.txt com as bibliotecas do projeto
+
+## Criação da conta AWS
+
+**Acessar o site da AWS:**
+
+- Vá para [AWS](https://aws.amazon.com/).
+- Iniciar o processo de criação de conta como nome de usuário, senha, método de pagamento, verificação de identidade e seleção do plano.
+
+**Criação dos Buckets das camadas**
+
+- Pesquisar S3 pelo console da AWS
+- Crie três buckets para as diferentes camadas do data lake.
+    - `breweries-lake-land`
+    - `breweries-lake-raw`
+    - `breweries-lake-curated`
+
+**Gerenciar usuário e permissões dos buckets das camadas de armazenamento**
+
+- Pesquisar IAM pelo console da AWS
+- Criar usuário do IAM
+- Especificar o tipo de acesso e as permissões do usuário

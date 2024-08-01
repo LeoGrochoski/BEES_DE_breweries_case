@@ -1,0 +1,10 @@
+2024-08-01 00:18:47,750 - INFO - Iniciando a pipeline
+2024-08-01 00:18:47,750 - INFO - Requisicao da API
+2024-08-01 00:18:47,850 - INFO - Requisicao da API realizada com sucesso!
+2024-08-01 00:18:47,852 - INFO - Inicio de conversao para DataFrame
+2024-08-01 00:18:47,853 - INFO - Dados salvos no DataFrame
+2024-08-01 00:18:47,853 - INFO - Convertendo DataFrame para CSV
+2024-08-01 00:18:47,859 - INFO - CSV criado com sucesso!
+2024-08-01 00:18:47,860 - INFO - Conexao com S3 iniciada
+2024-08-01 00:18:48,161 - INFO - Conexao com S3 realizada com sucesso!
+2024-08-01 00:18:50,076 - INFO - Dados salvos na LAND
