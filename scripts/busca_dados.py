@@ -75,6 +75,8 @@ def salvando_s3(df: pd.DataFrame, bucket: str, key: str):
     except boto3.exceptions.Boto3Error as e:
         logging.error(f"Erro ao salvar dados no S3: {e}")
         raise
+    
+    logging.info("Extracao dos dados completa")
 
 if __name__ == "__main__":
         dados = extracao_api(API)

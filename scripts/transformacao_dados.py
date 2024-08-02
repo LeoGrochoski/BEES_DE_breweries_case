@@ -49,7 +49,7 @@ def transformacao_dados(entrada_bucket, saida_bucket, prefix):
         aws_secret_access_key=AWS_SECRET_ACCESS_KEY
     )
 
-    # Garantindo que o diretório temporário exista
+    # Garantindo que o diretórioo temp exista
     if not os.path.exists('/tmp'):
         os.makedirs('/tmp')
 
@@ -106,5 +106,4 @@ def transformacao_dados(entrada_bucket, saida_bucket, prefix):
 
     logging.info("Transformacao dos dados completa")
 
-# Exemplo de chamada da função
 transformacao_dados(BUCKET_LAND, BUCKET_RAW, 'breweries_data_land_')
