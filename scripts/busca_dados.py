@@ -21,7 +21,7 @@ load_dotenv()
 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-BUCKET_NAME = os.getenv('BUCKET_NAME')
+BUCKET_LAND = os.getenv('BUCKET_LAND')
 
 logging.info("Iniciando a pipeline")
 
@@ -29,25 +29,25 @@ logging.info("Iniciando a pipeline")
 API = 'https://api.openbrewerydb.org/breweries'
 
 def extracao_api(api_url: str) -> Dict[str, Any]:
-    logging.info("Iniciando requisição da API")
+    logging.info("Iniciando requisicao da API")
     try:
         req = requests.get(api_url, timeout=10)
         req.raise_for_status()
-        logging.info("Requisição da API realizada com sucesso!")
+        logging.info("Requisicao da API realizada com sucesso!")
         return req.json()
     except requests.exceptions.RequestException as e:
-        logging.error(f"Erro na requisição da API: {e}")
+        logging.error(f"Erro na requisiaoo da API: {e}")
         raise
 
 # Sessão de conversão do JSON para DataFrame
 def cria_dataframe(lista: list) -> DataFrame:
-    logging.info("Iniciando conversão para DataFrame")
+    logging.info("Iniciando conversao para DataFrame")
     try:
         tabela: DataFrame = pd.DataFrame(lista)
         logging.info("Dados convertidos para DataFrame com sucesso!")
         return tabela
     except Exception as e:
-        logging.error(f"Erro na conversão para DataFrame: {e}")
+        logging.error(f"Erro na conversao para DataFrame: {e}")
         raise
 
 # Sessão de ingestão na land
@@ -58,17 +58,17 @@ def salvando_s3(df: pd.DataFrame, bucket: str, key: str):
         df.to_csv(csv_dados, index=False)
         logging.info("CSV criado com sucesso!")
     except Exception as e:
-        logging.error(f"Erro na conversão para CSV: {e}")
+        logging.error(f"Erro na conversao para CSV: {e}")
         raise
 
-    logging.info("Iniciando conexão com S3")
+    logging.info("Iniciando conexao com S3")
     try:
         conexao_s3 = boto3.resource(
             's3',
             aws_access_key_id=AWS_ACCESS_KEY_ID,
             aws_secret_access_key=AWS_SECRET_ACCESS_KEY
         )
-        logging.info("Conexão com S3 realizada com sucesso!")
+        logging.info("Conexao com S3 realizada com sucesso!")
         
         conexao_s3.Object(bucket, key).put(Body=csv_dados.getvalue())
         logging.info("Dados salvos no S3 com sucesso!")
@@ -80,4 +80,4 @@ if __name__ == "__main__":
         dados = extracao_api(API)
         df = cria_dataframe(dados)
         nome_arquivo = f"breweries_data_land_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.csv"
-        salvando_s3(df, BUCKET_NAME, nome_arquivo)
+        salvando_s3(df, BUCKET_LAND, nome_arquivo)
