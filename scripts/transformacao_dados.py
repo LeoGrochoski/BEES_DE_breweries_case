@@ -74,7 +74,7 @@ def transformacao_dados(entrada_bucket, saida_bucket, prefix):
         logging.info("Lendo arquivo CSV em forma de DF")
         df = pd.read_csv(caminho_temporario)
 
-        # Normalizando e removendo espaços em branco na coluna 'state', evitando erros humano
+        # Normalizando e removendo espaços em branco na coluna 'state', evitando erros humanos
         df['state'] = df['state'].str.strip().str.title()
         df = df.dropna(subset=['state'])
     except Exception as e:
@@ -83,32 +83,32 @@ def transformacao_dados(entrada_bucket, saida_bucket, prefix):
     
     try:
         logging.info("Agrupando dados por estado")
-        grouped = df.groupby('state')
+        agrupamento = df.groupby('state')
     except Exception as e:
         logging.error(f"Erro ao agrupar dados por estado: {e}")
         return
     
-    for state, group in grouped:
+    for state, grupo in agrupamento:
         try:
             timestamp = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
-            nome_saida_arq = f"{state.replace(' ', '_')}_{timestamp}.parquet"
+            nome_saida_arq = f"breweries_data_raw_{timestamp}_{state.replace(' ', '_')}.parquet"
             caminho_saida = os.path.join('/tmp', nome_saida_arq)
             
             logging.info(f"Processando dados para o estado: {state}")
-            tabela_arrow = pa.Table.from_pandas(group)
+            tabela_arrow = pa.Table.from_pandas(grupo)
             
             logging.info(f"Escrevendo dados para {state} em Parquet")
             pq.write_table(tabela_arrow, caminho_saida, compression='snappy')
             
             logging.info(f"Subindo arquivo Parquet para o estado: {state}")
-            s3_path = os.path.join(prefix, nome_saida_arq)
+            s3_path = nome_saida_arq  # Removido o prefixo 'breweries_data_land_'
             conexao_s3.upload_file(caminho_saida, saida_bucket, s3_path)
         
         except Exception as e:
             logging.error(f"Erro ao processar o estado {state}: {e}")
             continue
 
-    # Limpeza dos arquivos temporários, estava tendo problema com qualidade de dados
+    # Limpeza dos arquivos temporários
     try:
         logging.info("Removendo arquivos temporários")
         for root, dirs, files in os.walk('/tmp'):
