@@ -35,3 +35,100 @@
 2024-08-01 21:23:20,181 - INFO - Escrevendo Tabela Arrow em Parquet com particionamento
 2024-08-01 21:23:28,801 - INFO - Subindo Parquet particionado para S3
 2024-08-01 21:23:49,272 - INFO - Transformação dos dados completa
+2024-08-01 23:11:28,429 - INFO - Procurando o último arquivo CSV no S3
+2024-08-01 23:11:31,005 - INFO - Último arquivo CSV encontrado: breweries_data_land_2024-08-01_20-53-21.csv
+2024-08-01 23:11:31,005 - INFO - Baixando arquivo CSV da Land no S3
+2024-08-01 23:11:34,756 - INFO - Lendo arquivo CSV em forma de DF
+2024-08-01 23:11:34,761 - INFO - Convertendo DataFrame para uma tabela em formato Apache Arrow
+2024-08-01 23:11:34,761 - INFO - Escrevendo Tabela Arrow em Parquet com particionamento
+2024-08-01 23:11:34,825 - INFO - Subindo Parquet particionado para S3
+2024-08-01 23:15:38,561 - INFO - Removendo arquivos temporários
+2024-08-01 23:15:38,682 - INFO - Transformação dos dados completa
+2024-08-01 23:24:43,192 - INFO - Procurando o último arquivo CSV no S3
+2024-08-01 23:24:46,489 - INFO - Último arquivo CSV encontrado: breweries_data_land_2024-08-01_20-53-21.csv
+2024-08-01 23:24:46,489 - INFO - Baixando arquivo CSV da Land no S3
+2024-08-01 23:24:51,874 - INFO - Lendo arquivo CSV em forma de DF
+2024-08-01 23:24:51,897 - INFO - Agrupando dados por estado
+2024-08-01 23:24:51,905 - INFO - Processando dados para o estado: Arizona
+2024-08-01 23:24:51,913 - INFO - Escrevendo dados para Arizona em Parquet
+2024-08-01 23:24:51,921 - INFO - Subindo arquivo Parquet para o estado: Arizona
+2024-08-01 23:24:57,570 - INFO - Processando dados para o estado: California
+2024-08-01 23:24:57,578 - INFO - Escrevendo dados para California em Parquet
+2024-08-01 23:24:57,586 - INFO - Subindo arquivo Parquet para o estado: California
+2024-08-01 23:24:58,472 - INFO - Processando dados para o estado: Colorado
+2024-08-01 23:24:58,475 - INFO - Escrevendo dados para Colorado em Parquet
+2024-08-01 23:24:58,480 - INFO - Subindo arquivo Parquet para o estado: Colorado
+2024-08-01 23:24:59,826 - INFO - Processando dados para o estado: Delaware
+2024-08-01 23:24:59,835 - INFO - Escrevendo dados para Delaware em Parquet
+2024-08-01 23:24:59,835 - INFO - Subindo arquivo Parquet para o estado: Delaware
+2024-08-01 23:25:00,493 - INFO - Processando dados para o estado: Idaho
+2024-08-01 23:25:00,493 - INFO - Escrevendo dados para Idaho em Parquet
+2024-08-01 23:25:00,501 - INFO - Subindo arquivo Parquet para o estado: Idaho
+2024-08-01 23:25:02,302 - INFO - Processando dados para o estado: Illinois
+2024-08-01 23:25:02,302 - INFO - Escrevendo dados para Illinois em Parquet
+2024-08-01 23:25:02,309 - INFO - Subindo arquivo Parquet para o estado: Illinois
+2024-08-01 23:25:09,087 - INFO - Processando dados para o estado: Indiana
+2024-08-01 23:25:09,088 - INFO - Escrevendo dados para Indiana em Parquet
+2024-08-01 23:25:09,096 - INFO - Subindo arquivo Parquet para o estado: Indiana
+2024-08-01 23:25:11,730 - INFO - Processando dados para o estado: Iowa
+2024-08-01 23:25:11,730 - INFO - Escrevendo dados para Iowa em Parquet
+2024-08-01 23:25:11,738 - INFO - Subindo arquivo Parquet para o estado: Iowa
+2024-08-01 23:25:13,043 - INFO - Processando dados para o estado: Laois
+2024-08-01 23:25:13,043 - INFO - Escrevendo dados para Laois em Parquet
+2024-08-01 23:25:13,051 - INFO - Subindo arquivo Parquet para o estado: Laois
+2024-08-01 23:25:14,001 - INFO - Processando dados para o estado: Maryland
+2024-08-01 23:25:14,001 - INFO - Escrevendo dados para Maryland em Parquet
+2024-08-01 23:25:14,011 - INFO - Subindo arquivo Parquet para o estado: Maryland
+2024-08-01 23:25:18,206 - INFO - Processando dados para o estado: Massachusetts
+2024-08-01 23:25:18,211 - INFO - Escrevendo dados para Massachusetts em Parquet
+2024-08-01 23:25:18,215 - INFO - Subindo arquivo Parquet para o estado: Massachusetts
+2024-08-01 23:25:19,129 - INFO - Processando dados para o estado: Michigan
+2024-08-01 23:25:19,137 - INFO - Escrevendo dados para Michigan em Parquet
+2024-08-01 23:25:19,145 - INFO - Subindo arquivo Parquet para o estado: Michigan
+2024-08-01 23:25:20,236 - INFO - Processando dados para o estado: Minnesota
+2024-08-01 23:25:20,236 - INFO - Escrevendo dados para Minnesota em Parquet
+2024-08-01 23:25:20,244 - INFO - Subindo arquivo Parquet para o estado: Minnesota
+2024-08-01 23:25:21,472 - INFO - Processando dados para o estado: Mississippi
+2024-08-01 23:25:21,472 - INFO - Escrevendo dados para Mississippi em Parquet
+2024-08-01 23:25:21,477 - INFO - Subindo arquivo Parquet para o estado: Mississippi
+2024-08-01 23:25:25,335 - INFO - Processando dados para o estado: Nevada
+2024-08-01 23:25:25,335 - INFO - Escrevendo dados para Nevada em Parquet
+2024-08-01 23:25:25,343 - INFO - Subindo arquivo Parquet para o estado: Nevada
+2024-08-01 23:25:26,869 - INFO - Processando dados para o estado: New York
+2024-08-01 23:25:26,871 - INFO - Escrevendo dados para New York em Parquet
+2024-08-01 23:25:26,874 - INFO - Subindo arquivo Parquet para o estado: New York
+2024-08-01 23:25:27,590 - INFO - Processando dados para o estado: North Carolina
+2024-08-01 23:25:27,590 - INFO - Escrevendo dados para North Carolina em Parquet
+2024-08-01 23:25:27,598 - INFO - Subindo arquivo Parquet para o estado: North Carolina
+2024-08-01 23:25:28,614 - INFO - Processando dados para o estado: Ohio
+2024-08-01 23:25:28,615 - INFO - Escrevendo dados para Ohio em Parquet
+2024-08-01 23:25:28,620 - INFO - Subindo arquivo Parquet para o estado: Ohio
+2024-08-01 23:25:29,089 - INFO - Processando dados para o estado: Oklahoma
+2024-08-01 23:25:29,089 - INFO - Escrevendo dados para Oklahoma em Parquet
+2024-08-01 23:25:29,098 - INFO - Subindo arquivo Parquet para o estado: Oklahoma
+2024-08-01 23:25:30,131 - INFO - Processando dados para o estado: Oregon
+2024-08-01 23:25:30,132 - INFO - Escrevendo dados para Oregon em Parquet
+2024-08-01 23:25:30,137 - INFO - Subindo arquivo Parquet para o estado: Oregon
+2024-08-01 23:25:30,995 - INFO - Processando dados para o estado: Pennsylvania
+2024-08-01 23:25:30,995 - INFO - Escrevendo dados para Pennsylvania em Parquet
+2024-08-01 23:25:31,005 - INFO - Subindo arquivo Parquet para o estado: Pennsylvania
+2024-08-01 23:25:32,614 - INFO - Processando dados para o estado: South Carolina
+2024-08-01 23:25:32,620 - INFO - Escrevendo dados para South Carolina em Parquet
+2024-08-01 23:25:32,623 - INFO - Subindo arquivo Parquet para o estado: South Carolina
+2024-08-01 23:25:32,984 - INFO - Processando dados para o estado: Texas
+2024-08-01 23:25:32,984 - INFO - Escrevendo dados para Texas em Parquet
+2024-08-01 23:25:32,992 - INFO - Subindo arquivo Parquet para o estado: Texas
+2024-08-01 23:25:33,433 - INFO - Processando dados para o estado: Vermont
+2024-08-01 23:25:33,434 - INFO - Escrevendo dados para Vermont em Parquet
+2024-08-01 23:25:33,442 - INFO - Subindo arquivo Parquet para o estado: Vermont
+2024-08-01 23:25:34,040 - INFO - Processando dados para o estado: Virginia
+2024-08-01 23:25:34,040 - INFO - Escrevendo dados para Virginia em Parquet
+2024-08-01 23:25:34,048 - INFO - Subindo arquivo Parquet para o estado: Virginia
+2024-08-01 23:25:34,757 - INFO - Processando dados para o estado: Washington
+2024-08-01 23:25:34,764 - INFO - Escrevendo dados para Washington em Parquet
+2024-08-01 23:25:34,769 - INFO - Subindo arquivo Parquet para o estado: Washington
+2024-08-01 23:25:35,346 - INFO - Processando dados para o estado: Wisconsin
+2024-08-01 23:25:35,346 - INFO - Escrevendo dados para Wisconsin em Parquet
+2024-08-01 23:25:35,354 - INFO - Subindo arquivo Parquet para o estado: Wisconsin
+2024-08-01 23:25:35,724 - INFO - Removendo arquivos temporários
+2024-08-01 23:25:35,739 - INFO - Transformação dos dados completa
