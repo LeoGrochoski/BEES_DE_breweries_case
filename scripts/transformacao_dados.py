@@ -92,7 +92,7 @@ def transformacao_dados(entrada_bucket, saida_bucket, prefix):
     for state, grupo in agrupamento:
         try:
             timestamp = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-            nome_saida_arq = f"breweries_data_raw_{timestamp}_{state.replace(" ", "_")}.parquet"
+            nome_saida_arq = f"breweries_data_raw_{timestamp}_{state.replace(' ', '_')}.parquet"
             caminho_saida = os.path.join("/tmp", nome_saida_arq)
             
             logging.info(f"Processando dados para o estado: {state}")

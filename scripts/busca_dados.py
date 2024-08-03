@@ -81,5 +81,5 @@ def salvando_s3(df: pd.DataFrame, bucket: str, key: str):
 if __name__ == "__main__":
         dados = extracao_api(API)
         df = cria_dataframe(dados)
-        nome_arquivo = f"breweries_data_land_{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.csv"
+        nome_arquivo = f"breweries_data_land_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.csv"
         salvando_s3(df, BUCKET_LAND, nome_arquivo)

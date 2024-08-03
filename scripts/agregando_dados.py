@@ -22,7 +22,6 @@ AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 BUCKET_RAW = os.getenv("BUCKET_RAW")
 BUCKET_CURATED = os.getenv("BUCKET_CURATED")
 
-# Função para listar todos os arquivos Parquet no bucket S3
 def listar_arquivos_parquet(bucket_name, prefix=""):
     conexao_s3 = boto3.client(
         "s3",
@@ -50,10 +49,9 @@ def agregacao_dados(bucket_name, prefix):
     if not arquivos_parquet:
         logging.error("Nenhum arquivo Parquet encontrado no bucket")
         return
-    
+
     agregados = []
 
-    # Etapa de agregacao de dados
     for arquivo in arquivos_parquet:
         try:
             logging.info(f"Baixando arquivo Parquet: {arquivo}")
@@ -72,19 +70,19 @@ def agregacao_dados(bucket_name, prefix):
             logging.error(f"Erro ao processar o arquivo {arquivo}: {e}")
             continue
 
-    # Concatenanando todos os DataFrames apos agregacao
+    # Concatenando todos os DataFrames após agregação
     try:
         df_agregado = pd.concat(agregados)
     except ValueError as e:
         logging.error(f"Erro ao concatenar DataFrames: {e}")
         return
     
-    # Salvando o resultado agregado em um novo arquivo Parquet
     try:
         logging.info("Salvando resultado agregado em Parquet")
         tabela_arrow_agregada = pa.Table.from_pandas(df_agregado)
         timestamp = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        caminho_saida = os.path.join("/tmp", f"breweries_data_raw_{timestamp}_{state.replace(" ", "_")}.parquet")
+        caminho_saida = os.path.join("/tmp", f"breweries_data_raw_{timestamp}.parquet")
+
         pq.write_table(tabela_arrow_agregada, caminho_saida, compression="snappy")
 
         logging.info("Subindo arquivo Parquet agregado para S3")
@@ -94,6 +92,8 @@ def agregacao_dados(bucket_name, prefix):
         logging.error(f"Erro ao salvar ou enviar o arquivo Parquet agregado: {e}")
         return
 
-    logging.info("Agregacao dos dados completa")
+    logging.info("Agregação dos dados completa")
 
-agregacao_dados(BUCKET_RAW, "")
+# Chamada da função agregacao_dados
+if __name__ == "__main__":
+    agregacao_dados(BUCKET_RAW, "")
