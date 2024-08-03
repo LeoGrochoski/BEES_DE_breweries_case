@@ -19,14 +19,14 @@ logging.basicConfig(
 # Trazendo as variáveis de ambiente do arquivo seguro .env
 load_dotenv()
 
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-BUCKET_LAND = os.getenv('BUCKET_LAND')
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+BUCKET_LAND = os.getenv("BUCKET_LAND")
 
 logging.info("Iniciando a pipeline")
 
 # Sessão para trazer os dados da API no formato JSON
-API = 'https://api.openbrewerydb.org/breweries'
+API = "https://api.openbrewerydb.org/breweries"
 
 def extracao_api(api_url: str) -> Dict[str, Any]:
     logging.info("Iniciando requisicao da API")
@@ -64,7 +64,7 @@ def salvando_s3(df: pd.DataFrame, bucket: str, key: str):
     logging.info("Iniciando conexao com S3")
     try:
         conexao_s3 = boto3.resource(
-            's3',
+            "s3",
             aws_access_key_id=AWS_ACCESS_KEY_ID,
             aws_secret_access_key=AWS_SECRET_ACCESS_KEY
         )
@@ -81,5 +81,5 @@ def salvando_s3(df: pd.DataFrame, bucket: str, key: str):
 if __name__ == "__main__":
         dados = extracao_api(API)
         df = cria_dataframe(dados)
-        nome_arquivo = f"breweries_data_land_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.csv"
+        nome_arquivo = f"breweries_data_land_{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.csv"
         salvando_s3(df, BUCKET_LAND, nome_arquivo)

@@ -8,6 +8,12 @@ O objetivo deste projeto é demonstrar minhas habilidades em consumir dados de u
 em um data lake seguindo a arquitetura medalhão com três camadas: dados brutos, dados selecionados
 particionado por localização e uma camada analítica agregada.
 
+## Arquitetura Proposta do Projeto
+
+![arq](breweries_extraction.png)
+
+A arquitetura proposta é realizar a extração dos dados da API com python, extraindo no formato JSON, convertendo para csv e subindo para o S3 na camada Land, realizar as transformações com python, converter para Parquet e enviar para a camada Raw, da camada Raw realizar as agragações e manter o arquivo em Parquet e enviar para a camada Curated de onde será consumido pelo app (dashboard) com streamlit. 
+
 ## Configuração de ambiente
 
 1 - Criar o repositório do projeto no GitHub (para quem for utilizar clonar)
@@ -66,6 +72,10 @@ poetry add <biblioteca>
 - Pesquisar IAM pelo console da AWS
 - Criar usuário do IAM
 - Especificar o tipo de acesso e as permissões do usuário
+
+## Arquitetura do Projeto
+
+
 
 ## Requisição da API e Ingestão no S3
 

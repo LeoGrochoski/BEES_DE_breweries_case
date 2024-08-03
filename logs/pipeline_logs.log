@@ -354,3 +354,186 @@
 2024-08-01 23:53:59,456 - INFO - Subindo arquivo Parquet para o estado: Wisconsin
 2024-08-01 23:53:59,908 - INFO - Removendo arquivos temporários
 2024-08-01 23:53:59,927 - INFO - Transformação dos dados completa
+2024-08-02 20:59:51,963 - INFO - Iniciando a pipeline
+2024-08-02 20:59:51,964 - INFO - Iniciando requisicao da API
+2024-08-02 20:59:52,070 - INFO - Requisicao da API realizada com sucesso!
+2024-08-02 20:59:52,071 - INFO - Iniciando conversao para DataFrame
+2024-08-02 20:59:52,076 - INFO - Dados convertidos para DataFrame com sucesso!
+2024-08-02 20:59:52,077 - INFO - Convertendo DataFrame para CSV
+2024-08-02 20:59:52,083 - INFO - CSV criado com sucesso!
+2024-08-02 20:59:52,083 - INFO - Iniciando conexao com S3
+2024-08-02 20:59:52,657 - INFO - Conexao com S3 realizada com sucesso!
+2024-08-02 20:59:54,626 - INFO - Dados salvos no S3 com sucesso!
+2024-08-02 20:59:54,626 - INFO - Extracao dos dados completa
+2024-08-02 21:01:40,250 - INFO - Procurando o último arquivo CSV no S3
+2024-08-02 21:01:41,905 - INFO - Último arquivo CSV encontrado: breweries_data_land_2024-08-02_20-59-52.csv
+2024-08-02 21:01:41,905 - INFO - Baixando arquivo CSV da Land no S3
+2024-08-02 21:01:44,769 - INFO - Lendo arquivo CSV em forma de DF
+2024-08-02 21:01:44,803 - INFO - Agrupando dados por estado
+2024-08-02 21:01:44,811 - INFO - Processando dados para o estado: Arizona
+2024-08-02 21:01:44,832 - INFO - Escrevendo dados para Arizona em Parquet
+2024-08-02 21:01:44,875 - INFO - Subindo arquivo Parquet para o estado: Arizona
+2024-08-02 21:01:46,784 - INFO - Processando dados para o estado: California
+2024-08-02 21:01:46,787 - INFO - Escrevendo dados para California em Parquet
+2024-08-02 21:01:46,791 - INFO - Subindo arquivo Parquet para o estado: California
+2024-08-02 21:01:47,157 - INFO - Processando dados para o estado: Colorado
+2024-08-02 21:01:47,161 - INFO - Escrevendo dados para Colorado em Parquet
+2024-08-02 21:01:47,167 - INFO - Subindo arquivo Parquet para o estado: Colorado
+2024-08-02 21:01:47,655 - INFO - Processando dados para o estado: Delaware
+2024-08-02 21:01:47,658 - INFO - Escrevendo dados para Delaware em Parquet
+2024-08-02 21:01:47,665 - INFO - Subindo arquivo Parquet para o estado: Delaware
+2024-08-02 21:01:48,067 - INFO - Processando dados para o estado: Idaho
+2024-08-02 21:01:48,071 - INFO - Escrevendo dados para Idaho em Parquet
+2024-08-02 21:01:48,078 - INFO - Subindo arquivo Parquet para o estado: Idaho
+2024-08-02 21:01:48,459 - INFO - Processando dados para o estado: Illinois
+2024-08-02 21:01:48,461 - INFO - Escrevendo dados para Illinois em Parquet
+2024-08-02 21:01:48,468 - INFO - Subindo arquivo Parquet para o estado: Illinois
+2024-08-02 21:01:48,845 - INFO - Processando dados para o estado: Indiana
+2024-08-02 21:01:48,849 - INFO - Escrevendo dados para Indiana em Parquet
+2024-08-02 21:01:48,856 - INFO - Subindo arquivo Parquet para o estado: Indiana
+2024-08-02 21:01:49,227 - INFO - Processando dados para o estado: Iowa
+2024-08-02 21:01:49,229 - INFO - Escrevendo dados para Iowa em Parquet
+2024-08-02 21:01:49,232 - INFO - Subindo arquivo Parquet para o estado: Iowa
+2024-08-02 21:01:49,610 - INFO - Processando dados para o estado: Laois
+2024-08-02 21:01:49,613 - INFO - Escrevendo dados para Laois em Parquet
+2024-08-02 21:01:49,620 - INFO - Subindo arquivo Parquet para o estado: Laois
+2024-08-02 21:01:49,982 - INFO - Processando dados para o estado: Maryland
+2024-08-02 21:01:49,985 - INFO - Escrevendo dados para Maryland em Parquet
+2024-08-02 21:01:49,994 - INFO - Subindo arquivo Parquet para o estado: Maryland
+2024-08-02 21:01:50,371 - INFO - Processando dados para o estado: Massachusetts
+2024-08-02 21:01:50,374 - INFO - Escrevendo dados para Massachusetts em Parquet
+2024-08-02 21:01:50,383 - INFO - Subindo arquivo Parquet para o estado: Massachusetts
+2024-08-02 21:01:50,754 - INFO - Processando dados para o estado: Michigan
+2024-08-02 21:01:50,757 - INFO - Escrevendo dados para Michigan em Parquet
+2024-08-02 21:01:50,763 - INFO - Subindo arquivo Parquet para o estado: Michigan
+2024-08-02 21:01:51,138 - INFO - Processando dados para o estado: Minnesota
+2024-08-02 21:01:51,141 - INFO - Escrevendo dados para Minnesota em Parquet
+2024-08-02 21:01:51,149 - INFO - Subindo arquivo Parquet para o estado: Minnesota
+2024-08-02 21:01:51,540 - INFO - Processando dados para o estado: Mississippi
+2024-08-02 21:01:51,543 - INFO - Escrevendo dados para Mississippi em Parquet
+2024-08-02 21:01:51,550 - INFO - Subindo arquivo Parquet para o estado: Mississippi
+2024-08-02 21:01:51,924 - INFO - Processando dados para o estado: Nevada
+2024-08-02 21:01:51,926 - INFO - Escrevendo dados para Nevada em Parquet
+2024-08-02 21:01:51,930 - INFO - Subindo arquivo Parquet para o estado: Nevada
+2024-08-02 21:01:52,289 - INFO - Processando dados para o estado: New York
+2024-08-02 21:01:52,292 - INFO - Escrevendo dados para New York em Parquet
+2024-08-02 21:01:52,299 - INFO - Subindo arquivo Parquet para o estado: New York
+2024-08-02 21:01:52,665 - INFO - Processando dados para o estado: North Carolina
+2024-08-02 21:01:52,668 - INFO - Escrevendo dados para North Carolina em Parquet
+2024-08-02 21:01:52,676 - INFO - Subindo arquivo Parquet para o estado: North Carolina
+2024-08-02 21:01:53,041 - INFO - Processando dados para o estado: Ohio
+2024-08-02 21:01:53,044 - INFO - Escrevendo dados para Ohio em Parquet
+2024-08-02 21:01:53,054 - INFO - Subindo arquivo Parquet para o estado: Ohio
+2024-08-02 21:01:53,415 - INFO - Processando dados para o estado: Oklahoma
+2024-08-02 21:01:53,418 - INFO - Escrevendo dados para Oklahoma em Parquet
+2024-08-02 21:01:53,426 - INFO - Subindo arquivo Parquet para o estado: Oklahoma
+2024-08-02 21:01:53,786 - INFO - Processando dados para o estado: Oregon
+2024-08-02 21:01:53,789 - INFO - Escrevendo dados para Oregon em Parquet
+2024-08-02 21:01:53,794 - INFO - Subindo arquivo Parquet para o estado: Oregon
+2024-08-02 21:01:54,167 - INFO - Processando dados para o estado: Pennsylvania
+2024-08-02 21:01:54,171 - INFO - Escrevendo dados para Pennsylvania em Parquet
+2024-08-02 21:01:54,177 - INFO - Subindo arquivo Parquet para o estado: Pennsylvania
+2024-08-02 21:01:54,545 - INFO - Processando dados para o estado: South Carolina
+2024-08-02 21:01:54,548 - INFO - Escrevendo dados para South Carolina em Parquet
+2024-08-02 21:01:54,550 - INFO - Subindo arquivo Parquet para o estado: South Carolina
+2024-08-02 21:01:55,028 - INFO - Processando dados para o estado: Texas
+2024-08-02 21:01:55,031 - INFO - Escrevendo dados para Texas em Parquet
+2024-08-02 21:01:55,038 - INFO - Subindo arquivo Parquet para o estado: Texas
+2024-08-02 21:01:55,430 - INFO - Processando dados para o estado: Vermont
+2024-08-02 21:01:55,433 - INFO - Escrevendo dados para Vermont em Parquet
+2024-08-02 21:01:55,440 - INFO - Subindo arquivo Parquet para o estado: Vermont
+2024-08-02 21:01:55,807 - INFO - Processando dados para o estado: Virginia
+2024-08-02 21:01:55,811 - INFO - Escrevendo dados para Virginia em Parquet
+2024-08-02 21:01:55,818 - INFO - Subindo arquivo Parquet para o estado: Virginia
+2024-08-02 21:01:56,185 - INFO - Processando dados para o estado: Washington
+2024-08-02 21:01:56,188 - INFO - Escrevendo dados para Washington em Parquet
+2024-08-02 21:01:56,195 - INFO - Subindo arquivo Parquet para o estado: Washington
+2024-08-02 21:01:56,643 - INFO - Processando dados para o estado: Wisconsin
+2024-08-02 21:01:56,646 - INFO - Escrevendo dados para Wisconsin em Parquet
+2024-08-02 21:01:56,654 - INFO - Subindo arquivo Parquet para o estado: Wisconsin
+2024-08-02 21:01:57,080 - INFO - Removendo arquivos temporários
+2024-08-02 21:01:57,094 - INFO - Transformação dos dados completa
+2024-08-02 21:03:41,795 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_44_Arizona.parquet
+2024-08-02 21:03:48,756 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:48,838 - INFO - Agregando dados
+2024-08-02 21:03:48,841 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_46_California.parquet
+2024-08-02 21:03:49,289 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:49,300 - INFO - Agregando dados
+2024-08-02 21:03:49,309 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_47_Colorado.parquet
+2024-08-02 21:03:49,711 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:49,721 - INFO - Agregando dados
+2024-08-02 21:03:49,725 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_47_Delaware.parquet
+2024-08-02 21:03:50,118 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:50,124 - INFO - Agregando dados
+2024-08-02 21:03:50,125 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_48_Idaho.parquet
+2024-08-02 21:03:51,347 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:51,351 - INFO - Agregando dados
+2024-08-02 21:03:51,352 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_48_Illinois.parquet
+2024-08-02 21:03:51,850 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:51,859 - INFO - Agregando dados
+2024-08-02 21:03:51,862 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_48_Indiana.parquet
+2024-08-02 21:03:52,282 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:52,293 - INFO - Agregando dados
+2024-08-02 21:03:52,297 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_49_Iowa.parquet
+2024-08-02 21:03:52,680 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:52,689 - INFO - Agregando dados
+2024-08-02 21:03:52,692 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_49_Laois.parquet
+2024-08-02 21:03:53,078 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:53,089 - INFO - Agregando dados
+2024-08-02 21:03:53,091 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_49_Maryland.parquet
+2024-08-02 21:03:53,543 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:53,563 - INFO - Agregando dados
+2024-08-02 21:03:53,564 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_50_Massachusetts.parquet
+2024-08-02 21:03:54,476 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:54,486 - INFO - Agregando dados
+2024-08-02 21:03:54,488 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_50_Michigan.parquet
+2024-08-02 21:03:54,884 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:54,893 - INFO - Agregando dados
+2024-08-02 21:03:54,895 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_51_Minnesota.parquet
+2024-08-02 21:03:55,388 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:55,399 - INFO - Agregando dados
+2024-08-02 21:03:55,402 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_51_Mississippi.parquet
+2024-08-02 21:03:55,790 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:55,800 - INFO - Agregando dados
+2024-08-02 21:03:55,803 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_51_Nevada.parquet
+2024-08-02 21:03:56,209 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:56,221 - INFO - Agregando dados
+2024-08-02 21:03:56,223 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_52_New_York.parquet
+2024-08-02 21:03:56,999 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:57,004 - INFO - Agregando dados
+2024-08-02 21:03:57,005 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_52_North_Carolina.parquet
+2024-08-02 21:03:57,386 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:57,396 - INFO - Agregando dados
+2024-08-02 21:03:57,399 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_53_Ohio.parquet
+2024-08-02 21:03:57,787 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:57,796 - INFO - Agregando dados
+2024-08-02 21:03:57,798 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_53_Oklahoma.parquet
+2024-08-02 21:03:58,179 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:58,188 - INFO - Agregando dados
+2024-08-02 21:03:58,191 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_53_Oregon.parquet
+2024-08-02 21:03:58,581 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:58,589 - INFO - Agregando dados
+2024-08-02 21:03:58,590 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_54_Pennsylvania.parquet
+2024-08-02 21:03:59,024 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:59,031 - INFO - Agregando dados
+2024-08-02 21:03:59,032 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_54_South_Carolina.parquet
+2024-08-02 21:03:59,461 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:59,466 - INFO - Agregando dados
+2024-08-02 21:03:59,467 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_55_Texas.parquet
+2024-08-02 21:03:59,957 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:03:59,967 - INFO - Agregando dados
+2024-08-02 21:03:59,970 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_55_Vermont.parquet
+2024-08-02 21:04:00,351 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:04:00,361 - INFO - Agregando dados
+2024-08-02 21:04:00,364 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_55_Virginia.parquet
+2024-08-02 21:04:00,773 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:04:00,783 - INFO - Agregando dados
+2024-08-02 21:04:00,786 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_56_Washington.parquet
+2024-08-02 21:04:01,227 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:04:01,237 - INFO - Agregando dados
+2024-08-02 21:04:01,242 - INFO - Baixando arquivo Parquet: breweries_data_raw_2024_08_02_21_01_56_Wisconsin.parquet
+2024-08-02 21:04:01,627 - INFO - Lendo arquivo Parquet em forma de DF
+2024-08-02 21:04:01,636 - INFO - Agregando dados
+2024-08-02 21:04:01,640 - INFO - Salvando resultado agregado em Parquet
+2024-08-02 21:04:01,645 - INFO - Subindo arquivo Parquet agregado para S3
+2024-08-02 21:04:03,580 - INFO - Agregação dos dados completa
