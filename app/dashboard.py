@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 import plotly.express as px
 from typing import Optional
 
+load_dotenv() 
+
 # Função para baixar o arquivo Parquet do S3
 def baixar_arquivo_parquet(bucket_name: str, file_key: str, local_path: str):
     s3 = boto3.client('s3',
@@ -22,9 +24,6 @@ def carregar_dados(local_path: str) -> pd.DataFrame:
 # Função principal do Streamlit
 def main():
     st.title("Dashboard de Cervejarias")
-
-    # Configurações de ambiente
-    load_dotenv()
 
     # Carregar variáveis de ambiente
     BUCKET_CURATED = os.getenv('BUCKET_CURATED')
