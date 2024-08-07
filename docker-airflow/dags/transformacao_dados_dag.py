@@ -1,7 +1,11 @@
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime
-from scripts.transformacao_dados import main as transformacao_dados
+import subprocess
+
+def execute_script():
+    subprocess.run(["python", "/opt/airflow/scripts/transformacao_dados.py"], check=True)
+
 
 default_args = {
     'owner': 'airflow',

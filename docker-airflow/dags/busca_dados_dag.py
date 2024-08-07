@@ -1,7 +1,10 @@
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime
-from scripts.busca_dados import main as busca_dados
+import subprocess
+
+def execute_script():
+    subprocess.run(["python", "/opt/airflow/scripts/busca_dados.py"], check=True)
 
 default_args = {
     'owner': 'airflow',
@@ -18,6 +21,6 @@ dag = DAG(
 
 busca_dados_task = PythonOperator(
     task_id='busca_dados_task',
-    python_callable=busca_dados,
+    python_callable=execute_script,
     dag=dag,
 )

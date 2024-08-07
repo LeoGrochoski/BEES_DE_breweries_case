@@ -73,9 +73,6 @@ poetry add <biblioteca>
 - Criar usuário do IAM
 - Especificar o tipo de acesso e as permissões do usuário
 
-## Arquitetura do Projeto
-
-
 
 ## Requisição da API e Ingestão no S3
 
