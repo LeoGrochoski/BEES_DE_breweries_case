@@ -6,8 +6,7 @@ import os
 from dotenv import load_dotenv
 import plotly.express as px
 
-# Carregar variáveis de ambiente do arquivo .env
-load_dotenv()
+load_dotenv() 
 
 # Função para baixar o arquivo Parquet do S3
 def baixar_arquivo_parquet(bucket_name: str, file_key: str, local_path: str):
@@ -27,40 +26,25 @@ def main():
 
     # Carregar variáveis de ambiente
     BUCKET_CURATED = os.getenv('BUCKET_CURATED')
+    TEMP_DIR = os.getenv('TEMP_DIR')
     FILE_KEY = 'aggregated_breweries.parquet'
-    TEMP_DIR = os.getenv('TEMP')
-    
-    # Debug: Mostrar todas as variáveis de ambiente
-    st.write("Variáveis de ambiente carregadas:")
+
     st.write(f"BUCKET_CURATED: {BUCKET_CURATED}")
     st.write(f"TEMP_DIR: {TEMP_DIR}")
 
-    # Verificar se as variáveis de ambiente estão configuradas corretamente
-    if not TEMP_DIR:
-        st.error("A variável de ambiente TEMP não está configurada.")
-        return
-    
+    # Definir o LOCAL_PATH para o diretório temporário
     LOCAL_PATH = os.path.join(TEMP_DIR, 'aggregated_breweries.parquet')
 
-    if not BUCKET_CURATED:
-        st.error("A variável de ambiente BUCKET_CURATED não está configurada.")
+    # Verificar se as variáveis de ambiente estão configuradas corretamente
+    if not BUCKET_CURATED or not TEMP_DIR:
+        st.error("As variáveis de ambiente BUCKET_CURATED ou TEMP_DIR não estão configuradas.")
         return
 
     # Baixar o arquivo Parquet do S3
-    try:
-        baixar_arquivo_parquet(BUCKET_CURATED, FILE_KEY, LOCAL_PATH)
-        st.success(f"Arquivo {FILE_KEY} baixado com sucesso para {LOCAL_PATH}.")
-    except Exception as e:
-        st.error(f"Erro ao baixar o arquivo: {e}")
-        return
+    baixar_arquivo_parquet(BUCKET_CURATED, FILE_KEY, LOCAL_PATH)
 
     # Carregar dados
-    try:
-        df = carregar_dados(LOCAL_PATH)
-        st.success("Dados carregados com sucesso.")
-    except Exception as e:
-        st.error(f"Erro ao carregar dados: {e}")
-        return
+    df = carregar_dados(LOCAL_PATH)
 
     # Mostrar dataframe
     st.dataframe(df)
