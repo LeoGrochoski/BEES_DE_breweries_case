@@ -81,3 +81,38 @@ poetry add <biblioteca>
 - São convertidos para DataFrame
 - É feito um buffer na memoria para passar os dados para csv
 - CSV é inserido na camada land do S3
+
+## Configurando Aiflow com docker
+
+Primeiramente é importante ter na maquina instalado Docker, Docker Compose e WSL para facilitar a manipulação dos container
+
+Baixando as imagens das ferramentas que precisaremos
+
+```bash
+docker pull apache/airflow:2.7.1
+docker pull postgres:13
+docker pull redis:7.0
+```
+
+Iniciar container e banco do airflow
+
+```bash
+docker compose up airflow-init
+```
+
+Iniciar os serviços do airflow
+
+```bash
+docker compose up -d
+```
+
+Se necessário, encerrar o container com:
+```bash
+docker compose down
+```
+
+## Para rodar o dashboard
+```bash
+streamlit run app/dashboard.py
+```
+

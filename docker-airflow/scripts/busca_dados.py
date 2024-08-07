@@ -11,7 +11,7 @@ import logging
 
 # Configuração de logging
 logging.basicConfig(
-    filename="../logs/pipeline_logs.log",
+    filename="/opt/airflow/logs/pipeline_logs.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
@@ -32,11 +32,12 @@ def extracao_api(api_url: str) -> Dict[str, Any]:
     logging.info("Iniciando requisicao da API")
     try:
         req = requests.get(api_url, timeout=10)
+        logging.info(f"Status Code da resposta: {req.status_code}")
         req.raise_for_status()
         logging.info("Requisicao da API realizada com sucesso!")
         return req.json()
     except requests.exceptions.RequestException as e:
-        logging.error(f"Erro na requisiaoo da API: {e}")
+        logging.error(f"Erro na requisicao da API: {e}")
         raise
 
 # Sessão de conversão do JSON para DataFrame
@@ -70,16 +71,24 @@ def salvando_s3(df: pd.DataFrame, bucket: str, key: str):
         )
         logging.info("Conexao com S3 realizada com sucesso!")
         
+        logging.info(f"Salvando CSV no bucket {bucket} com a chave {key}")
         conexao_s3.Object(bucket, key).put(Body=csv_dados.getvalue())
-        logging.info("Dados salvos no S3 com sucesso!")
-    except boto3.exceptions.Boto3Error as e:
-        logging.error(f"Erro ao salvar dados no S3: {e}")
+        logging.info("Arquivo salvo no S3 com sucesso!")
+    except Exception as e:
+        logging.error(f"Erro ao salvar arquivo no S3: {e}")
         raise
-    
-    logging.info("Extracao dos dados completa")
+
+def main():
+    logging.info("Pipeline iniciada")
+    try:
+        dados_api = extracao_api(API)
+        tabela = cria_dataframe(dados_api)
+        key = f"breweries_data_{datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}.csv"
+        salvando_s3(tabela, BUCKET_LAND, key)
+        logging.info("Pipeline finalizada com sucesso!")
+    except Exception as e:
+        logging.error(f"Erro na pipeline: {e}")
+        raise
 
 if __name__ == "__main__":
-        dados = extracao_api(API)
-        df = cria_dataframe(dados)
-        nome_arquivo = f"breweries_data_land_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.csv"
-        salvando_s3(df, BUCKET_LAND, nome_arquivo)
+    main()

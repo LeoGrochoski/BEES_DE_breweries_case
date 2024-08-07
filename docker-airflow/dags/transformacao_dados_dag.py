@@ -1,11 +1,10 @@
 from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
+from airflow.operators.python import PythonOperator
 from datetime import datetime
 import subprocess
 
 def execute_script():
     subprocess.run(["python", "/opt/airflow/scripts/transformacao_dados.py"], check=True)
-
 
 default_args = {
     'owner': 'airflow',
@@ -22,6 +21,6 @@ dag = DAG(
 
 transformacao_dados_task = PythonOperator(
     task_id='transformacao_dados_task',
-    python_callable=transformacao_dados,
+    python_callable=execute_script,
     dag=dag,
 )

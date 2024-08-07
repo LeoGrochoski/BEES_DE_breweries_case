@@ -92,7 +92,7 @@ def agregacao_dados(bucket_name, prefix):
         logging.error(f"Erro ao salvar ou enviar o arquivo Parquet agregado: {e}")
         return
 
-    logging.info("Agregação dos dados completa")
+    logging.info("Agregacao dos dados completa")
 
 # Chamada da função agregacao_dados
 if __name__ == "__main__":

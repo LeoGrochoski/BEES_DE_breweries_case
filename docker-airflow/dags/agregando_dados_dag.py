@@ -22,6 +22,6 @@ dag = DAG(
 
 agregando_dados_task = PythonOperator(
     task_id='agregando_dados_task',
-    python_callable=agregando_dados,
+    python_callable=execute_script,
     dag=dag,
 )
