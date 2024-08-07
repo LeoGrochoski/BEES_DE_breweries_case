@@ -5,7 +5,6 @@ import boto3
 import os
 from dotenv import load_dotenv
 import plotly.express as px
-from typing import Optional
 
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
@@ -31,7 +30,12 @@ def main():
     FILE_KEY = 'aggregated_breweries.parquet'
     TEMP_DIR = os.getenv('TEMP')
     
-    # Adicionar mensagens de debug
+    # Debug: Mostrar todas as variáveis de ambiente
+    st.write("Variáveis de ambiente carregadas:")
+    st.write(f"BUCKET_CURATED: {BUCKET_CURATED}")
+    st.write(f"TEMP_DIR: {TEMP_DIR}")
+
+    # Verificar se as variáveis de ambiente estão configuradas corretamente
     if not TEMP_DIR:
         st.error("A variável de ambiente TEMP não está configurada.")
         return
@@ -41,11 +45,6 @@ def main():
     if not BUCKET_CURATED:
         st.error("A variável de ambiente BUCKET_CURATED não está configurada.")
         return
-
-    # Verificar se as variáveis de ambiente estão carregadas
-    st.write("Variáveis de ambiente carregadas:")
-    st.write(f"BUCKET_CURATED: {BUCKET_CURATED}")
-    st.write(f"TEMP_DIR: {TEMP_DIR}")
 
     # Baixar o arquivo Parquet do S3
     try:
