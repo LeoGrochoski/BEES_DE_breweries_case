@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 import plotly.express as px
 from typing import Optional
 
-load_dotenv() 
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
 
 # Função para baixar o arquivo Parquet do S3
 def baixar_arquivo_parquet(bucket_name: str, file_key: str, local_path: str):
@@ -28,20 +29,39 @@ def main():
     # Carregar variáveis de ambiente
     BUCKET_CURATED = os.getenv('BUCKET_CURATED')
     FILE_KEY = 'aggregated_breweries.parquet'
+    TEMP_DIR = os.getenv('TEMP')
+    
+    # Adicionar mensagens de debug
+    if not TEMP_DIR:
+        st.error("A variável de ambiente TEMP não está configurada.")
+        return
+    
+    LOCAL_PATH = os.path.join(TEMP_DIR, 'aggregated_breweries.parquet')
 
-    # Definir o LOCAL_PATH para Windows
-    LOCAL_PATH = os.path.join(os.getenv('TEMP'), 'aggregated_breweries.parquet')
-
-    # Verificar se as variáveis de ambiente estão configuradas corretamente
     if not BUCKET_CURATED:
         st.error("A variável de ambiente BUCKET_CURATED não está configurada.")
         return
 
+    # Verificar se as variáveis de ambiente estão carregadas
+    st.write("Variáveis de ambiente carregadas:")
+    st.write(f"BUCKET_CURATED: {BUCKET_CURATED}")
+    st.write(f"TEMP_DIR: {TEMP_DIR}")
+
     # Baixar o arquivo Parquet do S3
-    baixar_arquivo_parquet(BUCKET_CURATED, FILE_KEY, LOCAL_PATH)
+    try:
+        baixar_arquivo_parquet(BUCKET_CURATED, FILE_KEY, LOCAL_PATH)
+        st.success(f"Arquivo {FILE_KEY} baixado com sucesso para {LOCAL_PATH}.")
+    except Exception as e:
+        st.error(f"Erro ao baixar o arquivo: {e}")
+        return
 
     # Carregar dados
-    df = carregar_dados(LOCAL_PATH)
+    try:
+        df = carregar_dados(LOCAL_PATH)
+        st.success("Dados carregados com sucesso.")
+    except Exception as e:
+        st.error(f"Erro ao carregar dados: {e}")
+        return
 
     # Mostrar dataframe
     st.dataframe(df)
