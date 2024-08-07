@@ -122,6 +122,10 @@ OBS: O deploy do dash foi utilizando as dependencias do pyprojec.toml e a config
 
 Clique em [Dashboard](https://bees-breweries-case.streamlit.app/)
 
+## Documentação do projeto
+
+Clique em [Documentacao](https://leogrochoski.github.io/BEES_DE_breweries_case/)
+
 # Melhorias para o projeto
 
 - Incluiria mais testes, principalmente relacionado as DAGS e Dashboard;
