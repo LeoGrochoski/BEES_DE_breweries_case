@@ -75,5 +75,3 @@ dmypy.json
 # Airflow logs
 docker-airflow/logs/
 
-# temporario
-requirements.txt
