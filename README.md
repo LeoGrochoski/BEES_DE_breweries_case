@@ -120,7 +120,7 @@ OBS: O deploy do dash foi utilizando as dependencias do pyprojec.toml e a config
 
 ## Para acessar o dashboard pronto
 
-[Clique Aqui]("https://bees-breweries-case.streamlit.app/")
+Clique em [Dashboard](https://bees-breweries-case.streamlit.app/)
 
 # Melhorias para o projeto
 
