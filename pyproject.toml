@@ -18,6 +18,7 @@ plotly = "^5.23.0"
 apache-airflow = "2.9.3"  
 docutils = "^0.20"
 psycopg2-binary = "^2.9.9"
+mkdocs = "^1.6.0"
 
 [build-system]
 requires = ["poetry-core"]

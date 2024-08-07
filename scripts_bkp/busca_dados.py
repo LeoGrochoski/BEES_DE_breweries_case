@@ -9,6 +9,21 @@ from typing import Dict, Any
 from datetime import datetime
 import logging
 
+"""
+busca_dados.py
+
+Este módulo é responsável por extrair dados de cervejarias da API OpenBreweryDB,
+transformá-los em um DataFrame pandas, e salvar os resultados como um arquivo CSV no S3.
+
+Funções principais:
+- extracao_api: Extrai dados da API OpenBreweryDB.
+- cria_dataframe: Converte os dados JSON em um DataFrame pandas.
+- salvando_s3: Salva o DataFrame como CSV no S3.
+
+O módulo utiliza as bibliotecas requests para chamadas à API, pandas para manipulação de dados,
+e boto3 para interação com o Amazon S3.
+"""
+
 # Configuração de logging
 logging.basicConfig(
     filename="../logs/pipeline_logs.log",
@@ -29,6 +44,18 @@ logging.info("Iniciando a pipeline")
 API = "https://api.openbrewerydb.org/breweries"
 
 def extracao_api(api_url: str) -> Dict[str, Any]:
+    """
+    Realiza uma requisição GET para a API especificada e retorna os dados JSON.
+
+    Args:
+        api_url (str): URL da API para fazer a requisição.
+
+    Returns:
+        Dict[str, Any]: Dados JSON retornados pela API.
+
+    Raises:
+        requests.exceptions.RequestException: Se ocorrer um erro na requisição à API.
+    """
     logging.info("Iniciando requisicao da API")
     try:
         req = requests.get(api_url, timeout=10)
@@ -41,6 +68,18 @@ def extracao_api(api_url: str) -> Dict[str, Any]:
 
 # Sessão de conversão do JSON para DataFrame
 def cria_dataframe(lista: list) -> DataFrame:
+    """
+    Converte uma lista de dicionários em um DataFrame pandas.
+
+    Args:
+        lista (list): Lista de dicionários contendo os dados das cervejarias.
+
+    Returns:
+        DataFrame: DataFrame pandas criado a partir da lista de dados.
+
+    Raises:
+        Exception: Se ocorrer um erro durante a conversão para DataFrame.
+    """
     logging.info("Iniciando conversao para DataFrame")
     try:
         tabela: DataFrame = pd.DataFrame(lista)
@@ -52,6 +91,17 @@ def cria_dataframe(lista: list) -> DataFrame:
 
 # Sessão de ingestão na land
 def salvando_s3(df: pd.DataFrame, bucket: str, key: str):
+    """
+    Converte um DataFrame para CSV e o salva em um bucket S3.
+
+    Args:
+        df (pd.DataFrame): DataFrame a ser salvo.
+        bucket (str): Nome do bucket S3 onde o arquivo será salvo.
+        key (str): Chave (nome do arquivo) para o arquivo no S3.
+
+    Raises:
+        Exception: Se ocorrer um erro durante a conversão para CSV ou upload para S3.
+    """
     logging.info("Convertendo DataFrame para CSV")
     try:
         csv_dados = StringIO()

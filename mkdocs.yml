@@ -1,0 +1,12 @@
+site_name: Documentação - BEES Breweries Case Data Pipeline
+nav:
+  - Home: index.md
+  - Scripts:
+      - Busca de Dados: scripts/busca_dados.md
+      - Transformação de Dados: scripts/transformacao_dados.md
+      - Agregação de Dados: scripts/agregando_dados.md
+  - DAGs:
+      - Busca de Dados DAG: dags/busca_dados_dag.md
+      - Transformação de Dados DAG: dags/transformacao_dados_dag.md
+      - Agregação de Dados DAG: dags/agregando_dados_dag.md
+theme: readthedocs

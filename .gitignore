@@ -75,3 +75,6 @@ dmypy.json
 # Airflow logs
 docker-airflow/logs/
 
+# MkDocs documentation
+site*/
+

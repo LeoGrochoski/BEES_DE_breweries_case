@@ -7,6 +7,20 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 
+"""
+agregando_dados.py
+
+Este módulo é responsável por agregar dados de cervejarias armazenados em arquivos Parquet no S3.
+Ele lê os arquivos, realiza a agregação por estado e tipo de cervejaria, e salva o resultado
+em um novo arquivo Parquet no bucket curado do S3.
+
+Funções principais:
+- listar_arquivos_parquet: Lista arquivos Parquet em um bucket S3.
+- agregacao_dados: Realiza a agregação dos dados e salva o resultado.
+
+O módulo utiliza as bibliotecas pandas, pyarrow, e boto3 para processamento de dados e interação com o S3.
+"""
+
 # Configuração de logging
 logging.basicConfig(
     filename="../logs/pipeline_logs.log",
@@ -23,6 +37,16 @@ BUCKET_RAW = os.getenv("BUCKET_RAW")
 BUCKET_CURATED = os.getenv("BUCKET_CURATED")
 
 def listar_arquivos_parquet(bucket_name, prefix=""):
+    """
+    Lista todos os arquivos Parquet em um bucket S3 específico.
+
+    Args:
+        bucket_name (str): Nome do bucket S3.
+        prefix (str, opcional): Prefixo para filtrar os arquivos. Padrão é "".
+
+    Returns:
+        list: Lista de chaves (nomes) dos arquivos Parquet encontrados.
+    """
     conexao_s3 = boto3.client(
         "s3",
         aws_access_key_id=AWS_ACCESS_KEY_ID,
@@ -38,6 +62,23 @@ def listar_arquivos_parquet(bucket_name, prefix=""):
     return arquivos_parquet
 
 def agregacao_dados(bucket_name, prefix):
+    """
+    Agrega dados de cervejarias de múltiplos arquivos Parquet no S3.
+
+    Esta função realiza as seguintes operações:
+    1. Lista arquivos Parquet no bucket S3 especificado.
+    2. Baixa e lê cada arquivo Parquet.
+    3. Agrega os dados por estado e tipo de cervejaria.
+    4. Combina os resultados de todos os arquivos.
+    5. Salva o resultado agregado em um novo arquivo Parquet no bucket curado.
+
+    Args:
+        bucket_name (str): Nome do bucket S3 contendo os arquivos de origem.
+        prefix (str): Prefixo para filtrar os arquivos no bucket.
+
+    Raises:
+        Exception: Se ocorrer um erro durante o processamento ou upload do arquivo.
+    """
     conexao_s3 = boto3.client(
         "s3",
         aws_access_key_id=AWS_ACCESS_KEY_ID,
