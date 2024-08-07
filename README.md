@@ -111,8 +111,20 @@ Se necessário, encerrar o container com:
 docker compose down
 ```
 
-## Para rodar o dashboard
+## Para rodar o dashboard no sistema
 ```bash
 streamlit run app/dashboard.py
 ```
 
+OBS: O deploy do dash foi utilizando as dependencias do pyprojec.toml e a configuração do streamlit
+
+## Para acessar o dashboard pronto
+
+[Clique Aqui]("https://bees-breweries-case.streamlit.app/")
+
+# Melhorias para o projeto
+
+- Incluiria mais testes, principalmente relacionado as DAGS e Dashboard;
+- Expandir o sistema de logs da pipeline como um todo;
+- Desenvolver mais analises para trazer no dashboard;
+- Fazer deploy do Airflow usando EC2.
