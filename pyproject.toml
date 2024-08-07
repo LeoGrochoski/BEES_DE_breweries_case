@@ -6,7 +6,7 @@ authors = ["LeoGrochoski <leogrochoski10@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.12.4"
+python = ">=3.8,<3.9"
 requests = "^2.32.3"
 pandas = "^1.5.3"
 boto3 = "^1.34.151"
